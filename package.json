@@ -1,14 +1,14 @@
 {
-  "name": "cordis_parser",
-  "version": "1.0.0",
-  "description": "",
+  "name": "cordis-parser",
+  "version": "0.0.0",
+  "description": "Parses EU Cordis data from the European Union Open Data Portal and produces JSON",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marzeelabs/cordis_parser.git"
+    "url": "git+https://github.com/marzeelabs/cordis-parser.git"
   },
   "keywords": [
     "cordis",
@@ -16,12 +16,16 @@
     "json",
     "csv"
   ],
-  "author": "Peter Vanhee",
+  "author": {
+    "name": "Peter Vanhee",
+    "email": "peter@marzeelabs.org",
+    "url": "http://github.com/pvhee"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marzeelabs/cordis_parser/issues"
+    "url": "https://github.com/marzeelabs/cordis-parser/issues"
   },
-  "homepage": "https://github.com/marzeelabs/cordis_parser#readme",
+  "homepage": "https://github.com/marzeelabs/cordis-parser#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.2"
