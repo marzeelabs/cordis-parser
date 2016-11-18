@@ -10,6 +10,7 @@ describe('#cordis_parser', function() {
       done();
     });
   });
+  
 
   it('parses Horizon2020 projects and verifies headers are set correctly', function(done) {
 
@@ -38,7 +39,8 @@ describe('#cordis_parser', function() {
         'coordinatorCountry',
         'participants',
         'participantCountries',
-        'subjects'
+        'subjects',
+        'organizations'
       ];
 
       for (var i=0; i < result.length; i++) {
@@ -83,9 +85,13 @@ describe('#cordis_parser', function() {
         'contactEmail'
       ];
 
-      for (var i=0; i < result.length; i++) {
-        for (var j=0; j < headers.length; j++) {
-          assert(result[i].hasOwnProperty([headers[j]]), 'The value ' + headers[j] + ' is missing from the record ' + JSON.stringify(result[i]));
+      for (var i in result) {
+        if (result.hasOwnProperty(i)) {
+          for (var j=0; j < result[i].length; j++) {
+            for (var k=0; k < headers.length; k++) {
+              assert(result[i][j].hasOwnProperty([headers[k]]), 'The value ' + headers[k] + ' is missing from the record ' + JSON.stringify(result[i][j]));
+            }
+          }
         }
       }
 

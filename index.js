@@ -24,7 +24,7 @@ module.exports = {
     return converter;
   },
 
-  parseHorizon2020: function(cb) {
+  parseHorizon2020Projects: function(cb) {
     var converter = new Converter({
       delimiter: ';',
       // constructResult: false, // for big CSV data
@@ -47,13 +47,51 @@ module.exports = {
       flatKeys: true,
     });
 
+    var result = {};
+
     converter.on('end_parsed', function (jsonArray) {
-      cb(jsonArray);
+      cb(result);
+    });
+
+    //record_parsed will be emitted each time a row has been parsed.
+    converter.on("record_parsed", function(resultRow, rawRow, rowIndex) {
+      var key = resultRow['projectRcn'];
+      if (!result[key]) {
+        result[key] = [];
+      }
+      result[key].push(resultRow);
     });
 
     request.get(CORDIS_HORIZON2020_ORGANIZATIONS_URL).pipe(converter);
 
     return converter;
   },
+
+  parseHorizon2020: function(cb) {
+    this.parseHorizon2020Organizations(function (orgs) {
+
+      var converter = new Converter({
+        delimiter: ';',
+        // constructResult: false, // for big CSV data
+        flatKeys: true,
+      });
+
+      converter.transform = function(json, row, index) {
+        var rcn = json["rcn"];
+        if (orgs[rcn]) {
+          json["organizations"] = orgs[rcn];
+        }
+      };
+
+      converter.on('end_parsed', function (jsonArray) {
+        cb(jsonArray);
+      });
+
+      request.get(CORDIS_HORIZON2020_PROJECTS_URL).pipe(converter);
+
+      return converter;
+
+    });
+  }
 
 }
