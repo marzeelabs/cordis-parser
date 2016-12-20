@@ -14,6 +14,7 @@ var cp = require('cordis-parser');
 cp.parseHorizon2020(function(result) {
   // 'result' is an array with all Horizon2020 projects. Each element in the array is a JSON object.
 });
+```
 
 ## CLI
 
@@ -35,8 +36,6 @@ cordis-parser -h
 
 for all options.
 
-
-```
 
 ## License
 
