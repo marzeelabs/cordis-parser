@@ -15,6 +15,27 @@ cp.parseHorizon2020(function(result) {
   // 'result' is an array with all Horizon2020 projects. Each element in the array is a JSON object.
 });
 
+## CLI
+
+Use the CLI interface to quickly explore Horizon 2020 data.
+
+Use like
+
+```bash
+cordis-parser -s ActiveGrid
+```
+
+to print the details for the "ActiveGrid" project. 
+
+See
+
+```bash
+cordis-parser -h
+```
+
+for all options.
+
+
 ```
 
 ## License

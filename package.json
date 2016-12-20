@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "cordis-parser": "bin/cordis-parser.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marzeelabs/cordis-parser.git"
@@ -28,7 +31,10 @@
   "homepage": "https://github.com/marzeelabs/cordis-parser#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2"
+    "cli": "^1.0.1",
+    "fuse.js": "^2.6.1",
+    "mocha": "^3.1.2",
+    "prettyjson": "^1.2.1"
   },
   "dependencies": {
     "csvtojson": "^1.0.3",

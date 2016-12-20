@@ -1,6 +1,5 @@
 // var should = require('chai').should(),
 var cp = require('../index');
-var Converter = require('csvtojson').Converter;
 var assert = require('assert');
 
 describe('#cordis_parser', function() {
