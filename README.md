@@ -18,7 +18,7 @@ cp.parseHorizon2020(function(result) {
 
 ## CLI
 
-Use the CLI interface to quickly explore Horizon 2020 data.
+Use the commmand-line interface to quickly explore Horizon 2020 data.
 
 Use like
 
