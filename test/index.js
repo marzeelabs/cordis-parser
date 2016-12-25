@@ -19,7 +19,7 @@ describe('#cordis_parser', function() {
     cp.parseHorizon2020(function(result) {
       headers = [
         'rcn',
-        'reference',
+        'id',
         'acronym',
         'status',
         'programme',
@@ -60,7 +60,7 @@ describe('#cordis_parser', function() {
     cp.parseHorizon2020Organizations(function(result) {
       headers = [
         'projectRcn',
-        'projectReference',
+        'projectID',
         'projectAcronym',
         'role',
         'id',
