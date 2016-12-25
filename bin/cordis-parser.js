@@ -18,7 +18,7 @@ cli.main(function(args, options) {
 		if (options.search) {
 			var searchOptions = {
 				threshold: 0,
-				keys: ['acronym', 'title', 'participants']
+				keys: ['acronym', 'title', 'participants', 'coordinator']
 			};
 			var f = new Fuse(result, searchOptions);
 			var search = f.search(options.search);
