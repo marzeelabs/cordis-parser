@@ -1,6 +1,6 @@
 {
   "name": "cordis-parser",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Parses EU Cordis data from the European Union Open Data Portal and produces JSON",
   "main": "index.js",
   "scripts": {
