@@ -67,8 +67,9 @@ module.exports = {
     return converter;
   },
 
-  parseHorizon2020: function(cb) {
+  parseHorizon2020: function(cb, options) {
     this.parseHorizon2020Organizations(function (orgs) {
+      options = options || {};
 
       var converter = new Converter({
         delimiter: ';',
@@ -79,6 +80,29 @@ module.exports = {
       converter.transform = function(json, row, index) {
         var rcn = json["rcn"];
         if (orgs[rcn]) {
+          var flattenCoordinator = options['flattenCoordinator'] || false;
+          if (flattenCoordinator) {
+
+            for (var i=0; i<orgs[rcn].length; i++) {
+              var org = orgs[rcn][i];
+              
+              if (org['role'] == 'coordinator' || org['role'] == 'hostInstitution') {
+                json['coordinator_id'] = org['id'];
+                json['coordinator_name'] = org['name'];
+                json['coordinator_shortName'] = org['shortName'];
+                json['coordinator_activityType'] = org['activityType'];
+                json['coordinator_endOfParticipation'] = org['endOfParticipation'];
+                json['coordinator_country'] = org['country'];
+                json['coordinator_street'] = org['street'];
+                json['coordinator_city'] = org['city'];
+                json['coordinator_postCode'] = org['postCode'];
+                json['coordinator_organizationUrl'] = org['organizationUrl'];
+                break;
+              }
+            }
+          }
+
+          // Attach all organizations for reference
           json["organizations"] = orgs[rcn];
         }
       };
@@ -93,5 +117,4 @@ module.exports = {
 
     });
   }
-
 }

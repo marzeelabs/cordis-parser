@@ -39,7 +39,17 @@ describe('#cordis_parser', function() {
         'participants',
         'participantCountries',
         'subjects',
-        'organizations'
+        'organizations',
+        'coordinator_id',
+        'coordinator_name',
+        'coordinator_shortName',
+        'coordinator_activityType',
+        'coordinator_endOfParticipation',
+        'coordinator_country',
+        'coordinator_street',
+        'coordinator_city',
+        'coordinator_postCode',
+        'coordinator_organizationUrl'
       ];
 
       for (var i=0; i < result.length; i++) {
@@ -49,8 +59,9 @@ describe('#cordis_parser', function() {
       }
 
       done();
+    }, { 
+      flattenCoordinator: true
     });
-
   });
 
   it('parses Horizon2020 organizations and verifies headers are set correctly', function(done) {
@@ -98,4 +109,5 @@ describe('#cordis_parser', function() {
     });
 
   });
+
 });
