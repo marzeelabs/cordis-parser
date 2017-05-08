@@ -14,7 +14,7 @@ describe('#cordis_parser', function() {
   it('parses Horizon2020 projects and verifies headers are set correctly', function(done) {
 
     // Use a higher timeout to fetch the remote file
-    this.timeout(50000);
+    this.timeout(90000);
 
     cp.parseHorizon2020(function(result) {
       headers = [
@@ -66,7 +66,7 @@ describe('#cordis_parser', function() {
 
   it('parses Horizon2020 organizations and verifies headers are set correctly', function(done) {
     // Use a higher timeout to fetch the remote file
-    this.timeout(20000);
+    this.timeout(90000);
 
     cp.parseHorizon2020Organizations(function(result) {
       headers = [
